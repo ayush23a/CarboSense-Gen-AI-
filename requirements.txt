@@ -8,3 +8,5 @@ pydantic
 uvicorn
 joblib
 python-dotenv
+xgboost
+gunicorn
