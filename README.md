@@ -1,6 +1,9 @@
 # CarboSense: GenAI-Powered Carbon Footprint Analyzer 
 CarboSense is a web application that helps users understand their environmental impact by calculating their carbon footprint based on their lifestyle choices. It uses a machine learning model to predict the total footprint and leverages a Generative AI (GenAI) model to provide personalized, actionable suggestions for reduction.
 
+## Check it here:
+https://carbosense-gen-ai-based-carbon-footprint.onrender.com
+
 ## Features
 * Comprehensive Data Input: Users can input data across various categories including household energy, transportation, diet, and waste.
 
