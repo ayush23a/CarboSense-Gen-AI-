@@ -6,6 +6,5 @@ requests
 fastapi
 pydantic
 uvicorn
-json
 joblib
 python-dotenv
