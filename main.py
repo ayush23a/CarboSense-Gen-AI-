@@ -12,6 +12,10 @@ import pandas as pd
 import joblib
 import json
 import requests 
+import os
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 # --- Pydantic Model for Input Validation ---
 
@@ -130,12 +134,15 @@ async def generate_ai_suggestions(cf_breakdown_data: dict) -> str:
         "Focus on the areas with the highest contribution. Ensure the tone is encouraging and practical, avoiding jargon.\n\n"
         "Carbon Footprint Breakdown:\n"
     )
+    
     for category, value in cf_breakdown_data.items():
         prompt += f"- {category.replace('_', ' ')}: {value:.2f} kgCO2e/month\n"
     
     prompt += "\nSuggestions:"
 
-    apiKey = "" # API key
+    apiKey = os.getenv("GOOGLE_API_KEY") 
+    if not apiKey:
+        return "API key not found. Please set the GOOGLE_API_KEY environment variable."
     apiUrl = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}"
     
     payload = { "contents": [{ "parts": [{ "text": prompt }] }] }
